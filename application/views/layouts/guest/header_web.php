@@ -8,16 +8,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
 <title>LENTERA HATI</title>
-<link href="<?php echo base_url('assets/'); ?>css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
-<link href="<?php echo base_url('assets/'); ?>css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="<?php echo base_url('assets/guest/'); ?>css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+<link href="<?php echo base_url('assets/guest/'); ?>css/style.css" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href='//fonts.googleapis.com/css?family=Montserrat+Alternates' rel='stylesheet' type='text/css'>
 
-<link rel="stylesheet" href="<?php echo base_url('assetsadmin/ui-lightness/jquery-ui.css');?>" />
+<link rel="stylesheet" href="<?php echo base_url('assets/admin/ui-lightness/jquery-ui.css');?>" />
 
-<link rel="stylesheet" href="<?php echo base_url('assetsadmin/ui-lightness/jquery.ui.theme.css'); ?>">
- <link href="<?php echo base_url('assets/css/jquery.dataTables.min.css')?>" rel="stylesheet">
+<link rel="stylesheet" href="<?php echo base_url('assets/admin/ui-lightness/jquery.ui.theme.css'); ?>">
+ <link href="<?php echo base_url('assets/guest/css/jquery.dataTables.min.css')?>" rel="stylesheet">
 <style>
 	a:hover{text-decoration: none;}
 </style>
@@ -30,12 +30,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div class="header_top">
 				     	<div class="menu">
 				     		<ul>
-						    	<li class="<?php if(isset($menuhome)) echo $menuhome;?>"><a href="<?php echo site_url('home'); ?>">Home</a></li>
-						    	<li class="<?php if(isset($menugallery)) echo $menugallery;?>"><a href="<?php echo site_url('gallery'); ?>">Galeri</a></li>
-						    	<li ><a href="<?php echo site_url('home/informasi'); ?>">Staff</a>
+						    	<li class="<?php if(isset($menuhome)) echo $menuhome;?>"><a href="<?php echo site_url('guest/home'); ?>">Home</a></li>
+						    	<li class="<?php if(isset($menugallery)) echo $menugallery;?>"><a href="<?php echo site_url('guest/gallery'); ?>">Galeri</a></li>
+						    	<li ><a href="<?php echo site_url('guest/informasi'); ?>">Staff</a>
 								</li>
-                                 <li class="<?php if(isset($menupendaftaran)) echo $menupendaftaran;?>"><a href="<?php echo site_url('pendaftaran'); ?>">Penerimaan Siswa  Baru (PSB)</a></li>
-						    	<li class="<?php if(isset($menucontact)) echo $menucontact;?>"><a href="<?php echo site_url('home/contact'); ?>">Contact</a></li>
+                                 <li class="<?php if(isset($menupendaftaran)) echo $menupendaftaran;?>"><a href="<?php echo site_url('guest/pendaftaran'); ?>">Penerimaan Siswa  Baru (PSB)</a></li>
+						    	<li class="<?php if(isset($menuContact)) echo $menuContact;?>"><a href="<?php echo site_url('guest/home/contact'); ?>">Contact</a></li>
 						    	<div class="clear"></div>
 			     			</ul>
 				     	</div>

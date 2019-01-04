@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="<?php echo base_url('assets/admin/css/sweetalert2.css'); ?>">
 	<link rel="stylesheet" href="<?php echo base_url('assets/admin/css/toastr.min.css'); ?>">
 	<link href="<?php echo base_url('assets/admin/css/styles.css'); ?>" rel="stylesheet">
-	
+	<link href="<?php echo base_url('assets/admin/css/jquery.dataTables.css'); ?>" rel="stylesheet">
 	<!--Custom Font-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 	<!--[if lt IE 9]>
@@ -19,6 +19,7 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link rel="stylesheet" href="<?php echo base_url('assets/admin/css/lightbox.min.css'); ?>">
 	<script src="https://js.pusher.com/4.3/pusher.min.js"></script>
 </head>
 <body>
@@ -38,17 +39,19 @@
 							  		$pesan_masuk = $this->bantuan->pesanMasuk();
 							  		
 							?>
-									<span class="label label-danger" id="pesanMasuk">
+							<span class="label label-danger" style="display:none" id="pesanMasuk">
 											<?php echo $jumlahkomentar;?>
-									</span>
+							</span>
 						</a>
+						<?php if($jumlahkomentar >0 ) { ?>
+							
 						<ul class="dropdown-menu dropdown-messages" id="listPesanMasuk">
 							<?php foreach($pesan_masuk as $row){ ?>
 							<li>
 								<div class="dropdown-messages-box">
 									<div class="message-body">
 											<img alt="image" class="img-circle" src="<?php echo base_url('assets/admin/img/avatar.png'); ?>">
-										<a href="<?php echo site_url("admin/readMessage/".$row->idkomentarpengunjung); ?>"><strong><?php echo $row->namapengunjung; ?></strong> <?php echo word_limiter($row->isikomentar,20); ?><strong>
+										<a href="<?php echo site_url("admin/Message/readMessage/".$row->idkomentarpengunjung); ?>"><strong><?php echo $row->namapengunjung; ?></strong> <?php echo word_limiter($row->isikomentar,20); ?><strong>
 										<?php echo $row->emailpengunjung; ?>
 										</strong>.</a>
 									<br /><small class="text-muted"><?php echo $row->tanggalkomentar; ?></small></div>
@@ -56,24 +59,14 @@
 							</li>
 							<li class="divider"></li>
 							<?php } ?>
-							
-							
-							<li>
-								<div class="dropdown-messages-box"><a href="profile.html" class="pull-left">
-									<img alt="image" class="img-circle" src="http://placehold.it/40/30a5ff/fff">
-									</a>
-									<div class="message-body"><small class="pull-right">1 hour ago</small>
-										<a href="#">New message from <strong>Jane Doe</strong>.</a>
-									<br /><small class="text-muted">12:27 pm - 25/03/2015</small></div>
-								</div>
-							</li>
 							<li class="divider"></li>
 							<li>
-								<div class="all-button"><a href="#">
+								<div class="all-button"><a href="<?php echo site_url("admin/Message/Allmessage"); ?>">
 									<em class="fa fa-inbox"></em> <strong>All Messages</strong>
 								</a></div>
 							</li>
 						</ul>
+						<?php } ?>
 					</li>
 					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
 						<em class="fa fa-bell"></em><span class="label label-info">5</span>

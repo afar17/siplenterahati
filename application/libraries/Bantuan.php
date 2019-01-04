@@ -9,6 +9,18 @@ class Bantuan {
 	 $this->CI =& get_instance();
 	}
 	
+	function noPendaftaran($kode){
+	    $i = 0; //counter
+	    $pin = ""; //our default pin is blank.
+	    while($i < 3){
+	        //generate a random number between 0 and 9.
+	        $pin .= mt_rand(0, 3);
+	        $i++;
+	    }
+		$data = explode('-',date('Y-m-d'));
+	    return $kode.$data[0].$data[1].$data[2].$pin;
+	}
+
 	public function getInformasi(){
 		$this->CI->load->model('Infomodel');
 		$informasi = $this->CI->Infomodel->getAll();
@@ -64,6 +76,19 @@ class Bantuan {
 		$data = $this->CI->db->get();
 		
 		return $data->result();
+	}
+
+	function jumlahPendaftaran($kode){
+		
+		$this->CI->db->where("YEAR(tgl_pendaftaran)",date("Y"));
+		if($kode != "All"){
+			$this->CI->db->where("sekolah_kodesekolah",$kode);
+		}
+		
+		$this->CI->db->from('pendaftaran');
+		$data = $this->CI->db->count_all_results();
+		
+		return $data;
 	}
 }
 ?>

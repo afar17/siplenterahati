@@ -8,14 +8,19 @@
 	</div>
 </div>
 </div>
-	<script type="text/javascript" src="<?php echo base_url("assets/js/jquery.min.js"); ?>"></script>
-	<script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
-	<script src="<?php echo base_url('assetsadmin/js/jquery-ui.min.js'); ?>"></script>
-	<script src="<?php echo base_url('assets/js/jquery.PrintArea.js');?>"></script>
-	<script src="<?php echo base_url('assets/js/html2canvas.js');?>"></script>
-	<script src="<?php echo base_url("assetsadmin/js/sweetalert2.all.js"); ?>"></script>
-	<script src="<?php echo base_url('assets/js/jquery.dataTables.min.js')?>"></script>
- 
+	<script type="text/javascript" src="<?php echo base_url("assets/guest/js/jquery.min.js"); ?>"></script>
+	<script type="text/javascript" src="<?php echo base_url("assets/guest/js/bootstrap.min.js"); ?>"></script>
+	<script src="<?php echo base_url('assets/admin/js/jquery-ui.min.js'); ?>"></script>
+	<script src="<?php echo base_url('assets/guest/js/jquery.PrintArea.js');?>"></script>
+	<script src="<?php echo base_url('assets/guest/js/html2canvas.js');?>"></script>
+	<script src="<?php echo base_url("assets/admin/js/sweetalert2.all.js"); ?>"></script>
+	<script src="<?php echo base_url('assets/guest/js/jquery.dataTables.min.js')?>"></script>
+ 	<?php 
+ 	if(isset($menuUploadBerkas)) { ?>
+ 	<script src="<?php echo base_url('assets/guest/js/uploadberkas.js'); ?>"></script>
+ 	
+ 	<?php }
+ 	?>
 	<script type="text/javascript">
 		$(window).load( function() {
 			$("#tanggal").datepicker({
@@ -43,8 +48,8 @@
 			});
 			
 			//kalau menu contact dibuka
-		<?php if(isset($menucontact)) { ?>
-		 $("#FormContact").submit(function(e){
+	<?php if(isset($menuContact)) { ?>
+	 $("#FormContact").submit(function(e) {
 	  e.preventDefault();
 	  
 	  $.ajax({
@@ -55,11 +60,9 @@
 		  contentType : false,
 		  processData : false,
 		  success:function(hasil){
-			swal(
-				  'Berhasil!',
+			swal('Berhasil!',
 				  'Komentar Anda Akan Segera Kami Respon, Terimakasih!',
-				  'success'
-				); 
+				  'success'); 
 			$('#FormContact').trigger("reset");
 		  }
 		  ,error:function(err){
@@ -74,8 +77,10 @@
 		<?php } ?>
 
 		<?php if(isset($menuPendaftaran)) { 
-			$this->load->view("admin/psb/pendaftar.js");
+			$this->load->view("guest/data/pendaftar.js");
 		} ?>
+
+
 
 		<?php if(isset($urlAjax)) { ?>
 			//datatables
@@ -104,6 +109,5 @@
 
 		});
 	</script>
-});
 </body>
 </html>

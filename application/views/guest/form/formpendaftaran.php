@@ -7,13 +7,13 @@
 		<h3>Form Pendaftaran <?php echo $judulform; ?></h3>
 		
 		<div class="panel-body">
-			<?php $this->load->view('admin/notif'); ?>
+			<?php $this->load->view('notif'); ?>
 		<div class="position-center">
 		
 		<?php if(isset($edit)){?>
-			<form method="post" id="FormPendaftaran" role="form" action="<?php echo site_url("pendaftaran/update"); ?>">
+			<form method="post" id="FormPendaftaran" role="form" action="<?php echo site_url("admin/pendaftaran/update"); ?>">
 		<?php } else { ?>
-			<form method="post" id="FormPendaftaran"  action="<?php echo site_url("pendaftaran/save"); ?>">
+			<form method="post" id="FormPendaftaran"  action="<?php echo site_url("admin/pendaftaran/save"); ?>">
 		<?php } ?>
 		
 		<div class="form-group">
@@ -242,10 +242,10 @@
         </td>
 	</tr>
     <tr><td width="120">Alamat</td>
-        <td><input type="text" class="form-control" name="alamat_ibu" placeholder="alamat">
+        <td><input type="text" class="form-control" id="alamat_ibu" name="alamat_ibu" placeholder="alamat">
        </td></tr>
     <tr><td width="120">No. Telepon Ibu</td>
-        <td><input type="text" class="form-control" name="no_tlpn_ibu" placeholder="nomor telepon">
+        <td><input type="text" class="form-control" id="no_tlpn_ibu" name="no_tlpn_ibu" placeholder="nomor telepon">
        </td></tr>
     </table>
     </div>
@@ -258,7 +258,7 @@
 		<input type="hidden" name="id_daftar" value="<?php echo $row->id_daftar; ?>" />
 		 <button type="submit" name="update" value="update" class="btn btn-info">Update</button>
 	<?php } else { ?>
-		 <input type="hidden" name="kodesekolah" value="<?php echo $sekolah; ?>" />
+		 <input type="hidden" id="kodesekolah" name="kodesekolah" value="<?php echo $sekolah; ?>" />
 		 <button type="submit" name="save" value="save" class="btn btn-info">Save</button>
 	<?php } ?>
                                

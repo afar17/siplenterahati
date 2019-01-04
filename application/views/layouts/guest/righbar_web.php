@@ -12,7 +12,7 @@
 			<a href="#"><?php echo date("d/m/Y",strtotime($row->tgl_terbit)); ?></a>
 			
 			<?php echo word_limiter($row->isi_berita,20); ?>
-			<a href="<?php echo site_url('Home/infodetail/'.$row->id_info); ?>">Selengkapnya</a>
+			<a href="<?php echo site_url('guest/Home/infodetail/'.$row->id_info); ?>">Selengkapnya</a>
 			</div>
 		<div class="clear"> </div><br>
 		<?php } ?>

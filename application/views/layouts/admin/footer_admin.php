@@ -8,12 +8,12 @@
 	<script src="<?php echo base_url('assets/admin/js/bootstrap.min.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/admin/js/bootstrap-datepicker.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/admin/js/custom.js'); ?>"></script>
-	<script src="<?php echo base_url('assets/admin/js/custom.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/admin/js/admin.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/admin/js/sweetalert2.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/admin/js/toastr.min.js'); ?>"></script>
 	
-	
+	<script src="<?php echo base_url('assets/admin/js/lightbox-plus-jquery.min.js'); ?>"></script>
+	<script src="<?php echo base_url('assets/admin/js/jquery.dataTables.js'); ?>"></script>
 	<script>
 	//MEMBUAT INPUT AUDIO
 	$('<audio id="chatAudio"><source src="<?php echo base_url('assets/audio/notifikasi.ogg'); ?>" type="audio/ogg"><source src="<?php echo base_url('assets/audio/notifikasi.mp3'); ?>" type="audio/mpeg"><source src="<?php echo base_url('assets/audio/notifikasi.wav'); ?>" type="audio/wav"></audio>').appendTo('body');
@@ -45,7 +45,7 @@
 	  $('#chatAudio')[0].play();
 	  jumlah = jumlah+1;
 	  $("#pesanMasuk").html(jumlah);
-	  $("#listPesanMasuk").prepend('<li><div class="dropdown-messages-box"><img alt="image" class="img-circle" src="<?php echo base_url('assets/admin/img/avatar.png'); ?>"><div class="message-body"><a href="<?php echo site_url("admin/readMessage/"); ?>'+data.idkomentar+'">'+data.name+'<strong>'+data.message+'</strong><br>'+data.email+'.</a><br /><small class="text-muted">'+data.tanggalkomentar+'</small></div></div></li><li class="divider"></li>');
+	  $("#listPesanMasuk").prepend('<li><div class="dropdown-messages-box"><img alt="image" class="img-circle" src="<?php echo base_url('assets/admin/img/avatar.png'); ?>"><div class="message-body"><a href="<?php echo site_url("admin/Message/readMessage/"); ?>'+data.idkomentar+'">'+data.name+'<strong> &nbsp;'+data.message+'</strong><br>'+data.email+'.</a><br /><small class="text-muted">'+data.tanggalkomentar+'</small></div></div></li><li class="divider"></li>');
     });
 
 	<?php } //akhir dari admin ?>
@@ -58,20 +58,29 @@
     });
 
     //script php untuk kondisi channel sesuai level masing2
+
     <?php 
     if($this->session->userdata('level')=='Admin'){
+    	$pendaftaran = $this->bantuan->jumlahPendaftaran("All");
+		$kodesekolah = "All";
     	$channel = 'admin-channel';
     	$event = 'admin-event';
     }
     else if($this->session->userdata('level')=='operator_tk') {
+    	$pendaftaran = $this->bantuan->jumlahPendaftaran("TKIT");
+		$kodesekolah = "TKIT";
     	$channel = 'tk-channel';
     	$event = 'tk-event';
     }
     else if($this->session->userdata('level')=='operator_sd') {
+    	$pendaftaran = $this->bantuan->jumlahPendaftaran("SDIT");
+		$kodesekolah = "TKIT";
     	$channel = 'sd-channel';
     	$event = 'sd-event';
     }
     else {
+    	$pendaftaran = $this->bantuan->jumlahPendaftaran("SMPIT");
+		$kodesekolah = "TKIT";
     	$channel = 'smp-channel';
     	$event = 'smp-event';
     }
@@ -92,18 +101,34 @@
 			}
 	  // toastr.info('Pendaftar Baru ', {timeOut: 5000});
 	  $('#chatAudio')[0].play();
-	  $("#hasilpendaftaran tbody").append("<tr><td>1</td><td>"+data.name+"</td><td>"+data.tanggallahir+"<td>"+data.alamat+"</td></tr>");
+	  $("#hasilpendaftaran tbody").prepend("<tr><td>"+data.kodependaftaran+"</td><td>"+data.name+"</td><td>"+data.tanggallahir+"<td>"+data.alamat+"</td><td><a href='<?php echo site_url('admin/pendaftaran/lihatdetail/'); ?>"+data.kodependaftaran+"'>Lihat</a></td></tr>");
     });
 	//endPusher
-	window.onload = function () {
-	var chart1 = document.getElementById("line-chart").getContext("2d");
-	window.myLine = new Chart(chart1).Line(lineChartData, {
-	responsive: true,
-	scaleLineColor: "rgba(0,0,0,.2)",
-	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc"
-	});
-};
+	
+	//datatables untuk pendaftaran
+	//table datatable Server Side
+         table = $('#hasilpendaftaran').DataTable({ 
+ 
+        "processing": true, //Feature control the processing indicator.
+        "serverSide": true, //Feature control DataTables' server-side processing mode.
+        "order": [], //Initial no order.
+ 
+        // Load data for the table's content from an Ajax source
+        "ajax": {
+        	
+            "url": "<?php echo site_url('admin/Pendaftaran/datatables/'.$kodesekolah) ?>",
+            "type": "POST"
+        },
+ 
+        //Set column definition initialisation properties.
+        "columnDefs": [
+        { 
+           "targets": [ -1,2,], //last column
+           "orderable": false, //set not orderable
+        },
+        ],
+ 
+    });
 	</script>
 		
 </body>

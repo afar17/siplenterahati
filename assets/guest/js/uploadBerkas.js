@@ -1,20 +1,5 @@
 $(document).ready(function() {
-		//BOX BUTTON SHOW AND CLOSE
-	   jQuery('.small-graph-box').hover(function() {
-		  jQuery(this).find('.box-button').fadeIn('fast');
-	   }, function() {
-		  jQuery(this).find('.box-button').fadeOut('fast');
-	   });
-	   jQuery('.small-graph-box .box-close').click(function() {
-		  jQuery(this).closest('.small-graph-box').fadeOut(200);
-		  return false;
-	   });
-	   
-	    //CHARTS
-	    function gd(year, day, month) {
-			return new Date(year, month - 1, day).getTime();
-		}
-
+		
 		//fungsi upload gambar
 		var inputFile = $('input[name=file]');
 		var uploadURI = $('#formGallery').attr('action');
@@ -45,7 +30,7 @@ $(document).ready(function() {
 					  'success'
 					);
 					$('#formGallery').trigger("reset");	
-					$(".progress").fadeOut(5000);
+					location.href = "http://localhost/siplenterahati/index.php/guest/pendaftaran/print/"+result;
 					
 			    },
 				xhr: function() {
@@ -82,7 +67,3 @@ $(document).ready(function() {
 		
 	});
 	
-	
-    $("#tanggal").datepicker({
-		dateFormat:"dd/mm/yy"
-	});

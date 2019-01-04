@@ -11,19 +11,19 @@ class Template
 	
 	function full($template, $data=null) {
 		//tampilkan
-		$this->_ci->load->view('templates/header_web',$data);
+		$this->_ci->load->view('layouts/guest/header_web',$data);
 		$this->_ci->load->view($template,$data);
-		$this->_ci->load->view('templates/bottom_web',$data);
-		$this->_ci->load->view('templates/righbar_web',$data);
-		$this->_ci->load->view('templates/footer_web',$data);
+		$this->_ci->load->view('layouts/guest/bottom_web',$data);
+		$this->_ci->load->view('layouts/guest/righbar_web',$data);
+		$this->_ci->load->view('layouts/guest/footer_web',$data);
 	}
 	
 	function isi($template, $data=null){
 		//tampilkan
-		$this->_ci->load->view('templates/header_web',$data);
+		$this->_ci->load->view('layouts/guest/header_web',$data);
 		$this->_ci->load->view($template,$data);
-		$this->_ci->load->view('templates/righbar_web',$data);
-		$this->_ci->load->view('templates/footer_web',$data);
+		$this->_ci->load->view('layouts/guest/righbar_web',$data);
+		$this->_ci->load->view('layouts/guest/footer_web',$data);
 	}
     
 	function admin($template, $data=null){
