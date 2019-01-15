@@ -27,6 +27,6 @@ class Message extends CI_Controller {
 	public function delPesan($id){
 		$this->db->where("idkomentarpengunjung",$id);
 		$this->db->delete("komentarpengunjung");
-		redirect("AllMessage");
+		redirect("admin/Message/AllMessage");
 	}
 }

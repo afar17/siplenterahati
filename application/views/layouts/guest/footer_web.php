@@ -15,6 +15,7 @@
 	<script src="<?php echo base_url('assets/guest/js/html2canvas.js');?>"></script>
 	<script src="<?php echo base_url("assets/admin/js/sweetalert2.all.js"); ?>"></script>
 	<script src="<?php echo base_url('assets/guest/js/jquery.dataTables.min.js')?>"></script>
+	<script src="<?php echo base_url('assets/guest/js/galleryimages.js')?>"></script>
  	<?php 
  	if(isset($menuUploadBerkas)) { ?>
  	<script src="<?php echo base_url('assets/guest/js/uploadberkas.js'); ?>"></script>
@@ -23,6 +24,9 @@
  	?>
 	<script type="text/javascript">
 		$(window).load( function() {
+			//untuk tabnya
+			$("#tabsformpendaftaran").tabs();
+
 			$("#tanggal").datepicker({
 				dateFormat:"dd/mm/yy",
 				changeMonth: true,

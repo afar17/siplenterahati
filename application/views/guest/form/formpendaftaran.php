@@ -17,7 +17,13 @@
 		<?php } ?>
 		
 		<div class="form-group">
+		<div id="tabsformpendaftaran">
+			  <ul>
+			    <li><a href="#tab-siswa">Data Siswa</a></li>
+			    <li><a href="#tab-orangtua">Data Orangtua</a></li>
+			  </ul>
 		
+		<div id="tab-siswa">
 		<table class="bg-important table table-bordered">
         <tr>
 			<td width="120">Nama Lengkap</td>
@@ -119,16 +125,19 @@
     <tr><td width="120">Jarak Rumah Ke Sekolah</td>
         <td><input type="text" class="form-control" name="jarak_rumah_kesekolah" placeholder="jarak rumahke sekolah">
        </td></tr>
-    <tr><td width="120">Ukuran Baju</td>
+       <tr><td width="120">Ukuran Baju</td>
         <td>
             <div class="radio"><label><input type="radio"  name="uk_baju" value="S"> &nbsp;S</label></div>
             <div class="radio"><label><input type="radio" name="uk_baju" value="M"> &nbsp;M</label></div>
             <div class="radio"><label><input type="radio" name="uk_baju" value="L"> &nbsp;L</label></div>
             <div class="radio"><label><input type="radio" name="uk_baju" value="XL"> &nbsp;XL</label></div>
             <div class="radio"><label><input type="radio" name="uk_baju" value="XXL"> &nbsp;XXL</label></div>
-       </td></tr>
-
-    <tr><td width="120">Nama Ayah</td>
+        </td></tr>
+    </table>
+   		</div>
+   		<div id="tab-orangtua">
+   			<table class="bg-important table table-bordered">
+   			<tr><td width="120">Nama Ayah</td>
         <td><input type="text" class="form-control" name="nama_ayah" placeholder="nama lengkap">
        </td></tr>
     <tr><td width="120"> Tempat</td>
@@ -247,7 +256,10 @@
     <tr><td width="120">No. Telepon Ibu</td>
         <td><input type="text" class="form-control" id="no_tlpn_ibu" name="no_tlpn_ibu" placeholder="nomor telepon">
        </td></tr>
-    </table>
+   		
+    	</table>
+    	</div>
+    	</div>
     </div>
 						
 					   

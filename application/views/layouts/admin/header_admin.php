@@ -39,7 +39,7 @@
 							  		$pesan_masuk = $this->bantuan->pesanMasuk();
 							  		
 							?>
-							<span class="label label-danger" style="display:none" id="pesanMasuk">
+							<span class="label label-danger" id="pesanMasuk">
 											<?php echo $jumlahkomentar;?>
 							</span>
 						</a>
