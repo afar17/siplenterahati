@@ -131,6 +131,7 @@
 			<li class="<?php if(isset($menuPendaftaran)) echo $menuPendaftaran; ?>"><a href="<?php echo site_url('admin/pendaftaran'); ?>"><em class="fa fa-child">&nbsp;</em> Pendaftaran</a></li>
 			<li class="<?php if(isset($menuGallery)) echo $menuGallery; ?>"><a href="<?php echo site_url('admin/gallery'); ?>"><em class="fa fa-image">&nbsp;</em> Gallery</a></li>
 			<li class="<?php if(isset($menuInformasi)) echo $menuInformasi; ?>"><a href="<?php echo site_url('admin/informasi'); ?>"><em class="fa fa-suitcase">&nbsp;</em> Informasi</a></li>
+			<li class="<?php if(isset($menuStaff)) echo $menuStaff; ?>"><a href="<?php echo site_url('admin/staff'); ?>"><em class="fa fa-suitcase">&nbsp;</em> Staff</a></li>
 			
 			<li><a href="<?php echo site_url('Login/signout'); ?>"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>

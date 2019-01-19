@@ -4,37 +4,44 @@
                 <li><a href="<?php echo site_url("admin/dashboard/"); ?>">
                     <em class="fa fa-home"></em>
                 </a></li>
-                <li class="active">Gallery</li>
+                <li class="active">Input Staff</li>
             </ol>
         </div><!--/.row-->
         
         <div class="panel panel-default">
-        <div class="panel-heading">Masukkan Gallery</div>
+        <div class="panel-heading">Masukkan Data Staff</div>
         <div class="panel-body">
             <div class="col-md-6">
-          <form role="form-horizontal" id="formGallery" method="post" action="<?php echo site_url("admin/Gallery/upload"); ?>" enctype="multipart/form-data">
+          <form role="form-horizontal"  method="post" action="<?php echo site_url("admin/Staff/save"); ?>" enctype="multipart/form-data">
             
             <div class="form-group">
-                <label for="to" class="">Sekolah</label>
-                <select name="sekolah" class="form-control">
-                    <option value="TKIT">TK IT</option>
-                    <option value="SDIT">SD IT</option>
-                    <option value="SMPIT">SMP IT</option>
+                <label for="bcc" class="">Nama Lengkap</label>
+                <input type="text" name="nama" id="nama" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="subject" class="">NIP</label>
+                 <input type='text' class="form-control" name='nip' id="nip" />
+            </div>
+
+            <div class="form-group">
+                 <label for="subject" class="">Jabatan</label>
+                <select name="jabatan" class="form-control">
+                    <option value="Staff">Staff</option>
+                    <option value="Guru">Guru</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="bcc" class="">Judul</label>
-                <input type="text" tabindex="1" name="judul" id="bcc" class="form-control">
-            </div>
 
             <div class="form-group">
-                <label for="subject" class="">Deskripsi</label>
-                 <textarea class="wysihtml5 form-control" name='deskripsi' rows="9"></textarea>
+                <label for="subject" class="">Status</label>
+                <select name="status" class="form-control">
+                    <option value="Aktif">Aktif</option>
+                    <option value="Tidak Aktif">Tidak Aktif</option>
+                </select>
             </div>
 
-            <div class="form-group">
-              
-                <input type="file" class="default" name="filefoto">
+             <div class="form-group">
+               Upload Pas Foto <input type="file" class="default" name="fotostaf">
             </div>
 
             <div class="form-group">
