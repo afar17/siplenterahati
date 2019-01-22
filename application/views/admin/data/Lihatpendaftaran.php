@@ -8,9 +8,12 @@
                </ol>
           </div><!--/.row-->
           <div class="panel panel-container">
+
                <div class="row">
                <div class="col-md-12 no-padding">
+
                     <div class="panel-body">
+                      <?php $this->load->view("notif") ; ?>
                     <table class='table' ui-jq="footable">
                     <tr><th>Nama Lengkap</th><td><?php echo $row->nm_lengkap; ?></td>
                         <td rowspan="4">
@@ -84,6 +87,7 @@
                     <tr><th>No Telepon</th><td><?php echo $row->no_tlpn_ibu; ?></td></tr>
 		        </table>
                   <center>
+                  <?php if($this->session->userdata("judulPencarian") =="") { ?>
                   <form method="post" action="<?php echo site_url("admin/Pendaftaran"); ?>">
                     Keputusan : <select name="status">
                          <option value="lulus">Lulus</option>
@@ -92,6 +96,9 @@
                     <input type="hidden" name="iddaftar" value="<?php echo $row->id_daftar; ?>" />
                     <input type="submit" name="save" value="save" />
                   </form>
+                  <?php } else { ?>
+                    <button class="btn btn-success" style="width:100%;height:40px"><center><?php echo $row->status ; ?></center></button>
+                  <?php } ?>
              </center>
                </div>
           </div>

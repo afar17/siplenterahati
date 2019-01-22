@@ -22,7 +22,7 @@
 							<img src="<?php echo base_url('assets/admin/img/tk.png'); ?>" width='100px' height='130px' />
 							<div class="large"><?php echo $jumlahTK;  ?></div>
 							<div class="text-muted">
-								<a href="<?php echo site_url(); ?>">Lihat </a>
+								<a href="<?php echo site_url("admin/Pendaftaran/lihattk"); ?>">Lihat </a>
 							</div>
 						</div>
 					</div>
@@ -33,7 +33,7 @@
 							<img src="<?php echo base_url('assets/admin/img/sd.jpg'); ?>" width='100px' height='130px' />
 							<div class="large"><?php echo $jumlahSD;  ?></div>
 							<div class="text-muted">
-								<a href="<?php echo site_url(); ?>">Lihat </a>
+								<a href="<?php echo site_url("admin/Pendaftaran/lihatsd"); ?>">Lihat </a>
 							</div>
 						</div>
 					</div>
@@ -44,7 +44,7 @@
 							<img src="<?php echo base_url('assets/admin/img/smp.jpg'); ?>" width='100px' height='130px'/>
 							<div class="large"><?php echo $jumlahSMP;  ?></div>
 							<div class="text-muted">
-								<a href="<?php echo site_url(); ?>">Lihat </a>
+								<a href="<?php echo site_url("admin/Pendaftaran/lihatsmp"); ?>">Lihat </a>
 							</div>
 						</div>
 					</div>

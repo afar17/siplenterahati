@@ -17,7 +17,7 @@ class Komentar_model extends CI_Model {
 					  "emailpengunjung"=>$email,
 					  "isikomentar"=>$isipesan,
 					  "statusdibaca"=>"belum",
-					  "tanggalkomentar" =>date("Y-d-m H-i-s"));
+					  "tanggalkomentar" =>date("Y-m-d H-i-s"));
 		
 		$this->db->insert('komentarpengunjung',$data);
 		return $this->db->insert_id();

@@ -18,7 +18,7 @@
 		<div class="col-md-12">
 
 				<div class="panel panel-default">
-					<div class="panel-heading">Pendaftaran <?php echo $this->session->userdata("level"); ?>
+					<div class="panel-heading">Pendaftaran <?php echo $title; ?>
 						
 					</div>
 					<div class="panel-body">
@@ -30,6 +30,7 @@
                                     <th>Nama</th>
                                     <th>Tanggal Lahir</th>
                                     <th>Alamat Rumah</th>
+                                    <th>Status</th>
 	                                <th></th>
                                 </tr>
 							</thead>

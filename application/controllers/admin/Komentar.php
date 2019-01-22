@@ -29,7 +29,7 @@ class Komentar extends CI_Controller {
 		  $data['name'] = $this->input->post('nama');
 		  $data['message'] = $this->input->post('isipesan');
 		  $data['email'] = $this->input->post('email');
-		  $data['tanggalkomentar'] = date("Y-d-m H-i-s");
+		  $data['tanggalkomentar'] = date("Y-m-d H-i-s");
 		  $data['idkomentar'] = $id; 
 		  $pusher->trigger('my-channel', 'my-event', $data);
 	}

@@ -57,6 +57,32 @@ class User_model extends CI_Model {
 		$this->db->where('id_user', $id);
 		$this->db->delete('users');
 	}
+
+	public function prosesganti(){
+		$passwordlama = $this->input->post("passwordlama");
+		//cek kesediaan di database, ada atau tidak
+		$this->db->where("id_user",$this->session->userdata("id"));
+		$this->db->where("password",md5($passwordlama));
+		$hasil = $this->db->get("users");
+		if($hasil->num_rows() == 1){
+			//konfirmasi password baru
+			$passwordbaru = $this->input->post("passwordbaru");
+			$confirmpasswordbaru = $this->input->post("confirmpasswordbaru");
+			if($passwordbaru == $confirmpasswordbaru){
+				$data = array("password"=>md5($passwordbaru));
+				$this->db->where("id_user",$this->session->userdata("id"));
+				$this->db->update("users",$data);
+				$this->session->set_flashdata("success","Proses ganti password berhasil, silahkan keluar dan login dengan password yang baru saja anda buat.");
+			}
+			else {
+				$this->session->set_flashdata("error","Password dan Konfirmasi Password berbeda.");
+			}
+		}
+		else {
+			$this->session->set_flashdata("error","Gagal merubah password.");
+		}
+
+	}
 	
 }
 

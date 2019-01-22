@@ -40,6 +40,7 @@
 						<th>Nomor</th>
 						<th>Sekolah</th>
 						<th vlign="center">Jumlah Pendaftar</th>
+						<th>Kelulusan</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -47,16 +48,19 @@
 						<td>1</td>
 						<td><a href="<?php echo site_url('guest/pendaftaran/lihattk'); ?>" target="_blank">TK IT</a></td>
 						<td><center><?php echo $this->bantuan->cekkuotatk(); ?></center></td>
+						<td><a href="<?php echo site_url('guest/pendaftaran/kelulusan/tk'); ?>" target="_blank"> Lihat</a>
 					</tr>
 					<tr>
 						<td>2</td>
 						<td><a href="<?php echo site_url('guest/pendaftaran/lihatsd'); ?>" target="_blank">SD IT</a></td>
 						<td><center><?php echo $this->bantuan->cekkuotasd(); ?></center></td>
+						<td><a href="<?php echo site_url('guest/pendaftaran/kelulusan/sd'); ?>" target="_blank"> Lihat</a>
 					</tr>
 					<tr>
 						<td>3</td>
 						<td><a href="<?php echo site_url('guest/pendaftaran/lihatsmp'); ?>" target="_blank">SMP IT</a></td>
 						<td><center><?php echo $this->bantuan->cekkuotasmp(); ?></center></td>
+						<td><a href="<?php echo site_url('guest/pendaftaran/kelulusan/smp'); ?>" target="_blank"> Lihat</a>
 					</tr>
 				</tbody>
 			</table>

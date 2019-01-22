@@ -33,8 +33,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				     		<ul>
 						    	<li class="<?php if(isset($menuhome)) echo $menuhome;?>"><a href="<?php echo site_url('guest/home'); ?>">Home</a></li>
 						    	<li class="<?php if(isset($menugallery)) echo $menugallery;?>"><a href="<?php echo site_url('guest/gallery'); ?>">Galeri</a></li>
-						    	<li ><a href="<?php echo site_url('guest/informasi'); ?>">Staff</a>
-								</li>
+						    	
                                  <li class="<?php if(isset($menupendaftaran)) echo $menupendaftaran;?>"><a href="<?php echo site_url('guest/pendaftaran'); ?>">Penerimaan Siswa  Baru (PSB)</a></li>
 						    	<li class="<?php if(isset($menuContact)) echo $menuContact;?>"><a href="<?php echo site_url('guest/home/contact'); ?>">Contact</a></li>
 						    	<div class="clear"></div>

@@ -7,6 +7,7 @@ class Pendaftaran extends CI_Controller {
 		parent::__construct();
 		
 		$this->load->model('Pendaftaran_model');
+		$this->load->model('Kelulusan_model');
 		$this->load->model('Infomodel');
 		$this->load->model('quotamodel');
 
@@ -68,7 +69,7 @@ class Pendaftaran extends CI_Controller {
 
 	public function list_tk()
     {
-        $list = $this->pendaftaran_model->get_datatables('TKIT');
+        $list = $this->Pendaftaran_model->get_datatables('TKIT');
         $data = array();
         $no = $_POST['start'];
         foreach ($list as $daftar) {
@@ -269,5 +270,51 @@ class Pendaftaran extends CI_Controller {
 		$data["row"] = $this->Pendaftaran_model->cetakKartu($kode);
 		$this->load->view("guest/hasil/cetakPendaftaran",$data);
 	}
+
+	function kelulusan($id){
+		//cek kelulusan
+		if($id == "tk"){
+			$kode = 'TKIT';
+		}
+		else if($id == 'smp'){
+			$kode = 'SDIT';
+		}
+		else {
+			$kode = 'SMPIT';
+		}
+		
+		$data['urlAjax'] =  site_url('guest/pendaftaran/list_lulus/'.$kode);
+		$data['title'] = "KELULUSAN $kode";
+		$this->template->isi('guest/data/Listpendaftaran',$data);
+	}
+
+	public function list_lulus($id)
+    {
+        $list = $this->Kelulusan_model->get_kelulusan($id);
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($list as $daftar) {
+            $no++;
+            $row = array();
+            $row[] = $no;
+ 			$row[] = $daftar->nm_lengkap;
+ 			$row[] = $daftar->nm_panggilan;
+ 			$row[] = $daftar->nm_ayah;
+ 			$row[] = $daftar->nm_ibu;
+
+
+            $data[] = $row;
+        }
+ 
+        $output = array(
+                        "draw" => $_POST['draw'],
+                        "recordsTotal" => $this->Kelulusan_model->count_all($id),
+                        "recordsFiltered" => $this->Kelulusan_model->count_filtered($id),
+                        "data" => $data,
+                );
+        //output to json format
+        echo json_encode($output);
+    }
+
 	
 }

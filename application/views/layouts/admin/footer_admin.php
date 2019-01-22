@@ -15,6 +15,7 @@
 	<script src="<?php echo base_url('assets/admin/js/lightbox-plus-jquery.min.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/admin/js/jquery.dataTables.js'); ?>"></script>
 	<script>
+	
 	//MEMBUAT INPUT AUDIO
 	$('<audio id="chatAudio"><source src="<?php echo base_url('assets/audio/notifikasi.ogg'); ?>" type="audio/ogg"><source src="<?php echo base_url('assets/audio/notifikasi.mp3'); ?>" type="audio/mpeg"><source src="<?php echo base_url('assets/audio/notifikasi.wav'); ?>" type="audio/wav"></audio>').appendTo('body');
 	
@@ -38,7 +39,6 @@
 			  "onclick": null,
 			  "fadeIn": 300,
 			  "fadeOut": 1000,
-			  "timeOut": 5000,
 			  "extendedTimeOut": 1000
 			}
 	  toastr.info('Pesan Baru Dari '+data.name+" : "+ data.message + 'Success Alert', {timeOut: 5000});
@@ -115,9 +115,13 @@
  
         // Load data for the table's content from an Ajax source
         "ajax": {
+        	<?php if(isset($menuLaporan)) { ?>
+        		"url": "<?php echo site_url('admin/Laporan/datatables/'.$kodeajax) ?>",
+        	<?php }  else { ?>
+        		"url": "<?php echo site_url('admin/Pendaftaran/datatables/'.$kodesekolah) ?>",
+        	<?php } ?>
         	
-            "url": "<?php echo site_url('admin/Pendaftaran/datatables/'.$kodesekolah) ?>",
-            "type": "POST"
+        	"type": "POST"
         },
  
         //Set column definition initialisation properties.

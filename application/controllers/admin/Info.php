@@ -10,26 +10,24 @@ class Info extends CI_Controller {
 		}
 		$this->load->model('Infomodel');
 		$this->load->model('Sekolahmodel');
-		
-
 	}
 
 	public function index()
 
 	{
 		$data['informasi'] = $this->Infomodel->getAll();
-		$this->template->admin('admin/informasi',$data);
+		$this->template->admin('admin/data/Informasi',$data);
 	}
 	public function add()
 	{
 		$data['sekolah'] = $this->Sekolahmodel->getAll();
-		$this->template->admin('admin/infoform',$data);
+		$this->template->admin('admin/form/Informasi',$data);
 	}
 	
 	public function save(){
 		$this->Infomodel->save();
 		$this->session->set_flashdata('success','Data Berhasil Disimpan!');
-		redirect('info/index');
+		redirect('admin/info/index');
 	}
 	
 	public function edit($id){
@@ -37,7 +35,7 @@ class Info extends CI_Controller {
 		$data['edit'] = 'edit';
 		$data['sekolah'] = $this->Sekolahmodel->getAll();
 		$data['row']= $this->Infomodel->getId($id);
-		$this->template->admin('admin/infoform',$data);
+		$this->template->admin('admin/form/Informasi',$data);
 		
 	}
 	
@@ -45,12 +43,12 @@ class Info extends CI_Controller {
 		$this->Infomodel->update(); 
 		$this->session->set_flashdata('success','Data Berhasil Diperbaharui!');
 		
-		redirect('info/index');
+		redirect('admin/info/index');
 	}
 	
 	public function del($id) {
 		$this->Infomodel->delete($id);
 		$this->session->set_flashdata('success','Data Berhasil Dihapus!');
-		redirect('info/index');
+		redirect('admin/info/index');
 	}
 }

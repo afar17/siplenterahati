@@ -4,7 +4,7 @@
 <div class="col span_2_of_3">
   <div class="contact-form">
   	<h3>Hubungi Kami</h3>
-	    <form method="post" action="<?php echo site_url('guest/Home/simpancontact'); ?>" id="FormContact">
+	    <form method="post" action="<?php echo site_url('admin/Komentar/simpanKomentar'); ?>" id="FormContact">
 	    	<div>
 		    	<span><label>Nama</label></span>
 		    	<span><input name="nama"  type="text" class="textbox" required></span>

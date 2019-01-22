@@ -4,7 +4,7 @@ if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
 
-class Pendaftaran_model extends CI_Model {
+class Kelulusan_model extends CI_Model {
 
 
     //datatables
@@ -24,6 +24,7 @@ class Pendaftaran_model extends CI_Model {
             $this->db->where('sekolah_kodesekolah',$id);
         }
         $this->db->where("YEAR(tgl_pendaftaran)",date('Y'));
+        $this->db->where("status","lulus");
         $this->db->from($this->table);
  
         $i = 0;
@@ -60,7 +61,7 @@ class Pendaftaran_model extends CI_Model {
         }
     }
  
-    function get_datatables($id)
+    function get_kelulusan($id)
     {
         $this->datatables($id);
         if($_POST['length'] != -1)

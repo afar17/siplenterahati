@@ -68,43 +68,22 @@
 						</ul>
 						<?php } ?>
 					</li>
-					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-						<em class="fa fa-bell"></em><span class="label label-info">5</span>
-					</a>
-						<ul class="dropdown-menu dropdown-alerts">
-							<li><a href="#">
-								<div><em class="fa fa-envelope"></em> 1 New Message
-									<span class="pull-right text-muted small">3 mins ago</span></div>
-							</a></li>
-							<li class="divider"></li>
-							<li><a href="#">
-								<div><em class="fa fa-heart"></em> 12 New Likes
-									<span class="pull-right text-muted small">4 mins ago</span></div>
-							</a></li>
-							<li class="divider"></li>
-							<li><a href="#">
-								<div><em class="fa fa-user"></em> 5 New Followers
-									<span class="pull-right text-muted small">4 mins ago</span></div>
-							</a></li>
-						</ul>
-					</li>
+					<?php if($this->session->userdata("level")=='Admin') { ?>
 					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
 						<em class="fa fa-user"></em>
 					</a>
 						<ul class="dropdown-menu dropdown-alerts">
-							<li><a href="#">
-								<div><em class="fa fa-user"></em>Profil</div>
+							<li><a href="<?php echo site_url("admin/Manajemen"); ?>">
+								<div><em class="fa fa-user"></em>Manajemen User</div>
 							</a></li>
 							<li class="divider"></li>
-							<li><a href="#">
-								<div><em class="fa fa-image"></em> Ganti Profil</div>
-							</a></li>
 							<li class="divider"></li>
-							<li><a href="#">
+							<li><a href="<?php echo site_url("admin/Manajemen/change"); ?>">
 								<div><em class="fa fa-key"></em> Ganti Password</div>
 							</a></li>
 						</ul>
 					</li>
+					<?php } ?>
 				</ul>
 			</div>
 		</div><!-- /.container-fluid -->
@@ -121,17 +100,19 @@
 			<div class="clear"></div>
 		</div>
 		<div class="divider"></div>
-		<form role="search">
+		<form role="search" method="post" action="<?php echo site_url("admin/Pendaftaran/caripeserta"); ?>"> 
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Cari Nama Peserta">
+				<input type="text" class="form-control" name="kodependaftaran" placeholder="Kode Peserta">
+				<input type="submit" name="carikode" value="Cari"/>
 			</div>
 		</form>
+		
 		<ul class="nav menu">
 			<li class="<?php if(isset($menuDashboard)) echo $menuDashboard; ?>"><a href="<?php echo site_url('admin/dashboard'); ?>"><em class="fa fa-home">&nbsp;</em> Dashboard</a></li>
 			<li class="<?php if(isset($menuPendaftaran)) echo $menuPendaftaran; ?>"><a href="<?php echo site_url('admin/pendaftaran'); ?>"><em class="fa fa-child">&nbsp;</em> Pendaftaran</a></li>
 			<li class="<?php if(isset($menuGallery)) echo $menuGallery; ?>"><a href="<?php echo site_url('admin/gallery'); ?>"><em class="fa fa-image">&nbsp;</em> Gallery</a></li>
-			<li class="<?php if(isset($menuInformasi)) echo $menuInformasi; ?>"><a href="<?php echo site_url('admin/informasi'); ?>"><em class="fa fa-suitcase">&nbsp;</em> Informasi</a></li>
-			<li class="<?php if(isset($menuStaff)) echo $menuStaff; ?>"><a href="<?php echo site_url('admin/staff'); ?>"><em class="fa fa-suitcase">&nbsp;</em> Staff</a></li>
+			<li class="<?php if(isset($menuInformasi)) echo $menuInformasi; ?>"><a href="<?php echo site_url('admin/Info'); ?>"><em class="fa fa-suitcase">&nbsp;</em> Informasi</a></li>
+			<li class="<?php if(isset($menuLaporan)) echo $menuLaporan; ?>"><a href="<?php echo site_url('admin/Laporan'); ?>"><em class="fa fa-file">&nbsp;</em> Laporan</a></li>
 			
 			<li><a href="<?php echo site_url('Login/signout'); ?>"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
