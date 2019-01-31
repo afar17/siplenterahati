@@ -105,7 +105,7 @@ class Pendaftaran_model extends CI_Model {
 	}
 	
 	public function save(){
-            $id_daftar        =   $this->input->post('id_daftar');
+           
             $nama_lengkap     =   $this->input->post('nm_lengkap');
             $nama_panggilan   =   $this->input->post('nm_panggilan');
             $nik              =   $this->input->post('nik');
@@ -152,7 +152,7 @@ class Pendaftaran_model extends CI_Model {
             $nm_ibu                   =   $this->input->post('nm_ibu');
             $tempat_ibu               =   $this->input->post('tempat_ibu');
 			
-			if($this->input->post('tanggallahirayah')!=""){
+			if($this->input->post('tanggallahiribu')!=""){
 				$tgllahiribu = explode('/',$this->input->post('tanggallahiribu'));
 				$tgl_lahiribu = $tgllahiribu[2]."-".$tgllahiribu[1]."-".$tgllahiribu[0];
 			}
@@ -172,8 +172,7 @@ class Pendaftaran_model extends CI_Model {
             $kodesekolah              =   $this->input->post('kodesekolah');
             $nomor_pendaftaran        = $this->bantuan->noPendaftaran($kodesekolah);
             
-		$data = array("id_daftar"   =>  $id_daftar,
-				  "nm_lengkap"=>$nama_lengkap,
+		$data = array("nm_lengkap"=>$nama_lengkap,
 				  "nm_panggilan"=>$nama_panggilan,  
 					"nik_siswa"   =>  $nik,
 					"jenis_kelamin"   =>$jns_kelamin,

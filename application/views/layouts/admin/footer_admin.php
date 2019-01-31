@@ -16,6 +16,7 @@
 	<script src="<?php echo base_url('assets/admin/js/jquery.dataTables.js'); ?>"></script>
 	<script>
 	
+
 	//MEMBUAT INPUT AUDIO
 	$('<audio id="chatAudio"><source src="<?php echo base_url('assets/audio/notifikasi.ogg'); ?>" type="audio/ogg"><source src="<?php echo base_url('assets/audio/notifikasi.mp3'); ?>" type="audio/mpeg"><source src="<?php echo base_url('assets/audio/notifikasi.wav'); ?>" type="audio/wav"></audio>').appendTo('body');
 	
@@ -99,9 +100,9 @@
 			  "timeOut": 5000,
 			  "extendedTimeOut": 1000
 			}
-	  // toastr.info('Pendaftar Baru ', {timeOut: 5000});
+	  toastr.info('Pendaftar Baru ', {timeOut: 5000});
 	  $('#chatAudio')[0].play();
-	  $("#hasilpendaftaran tbody").prepend("<tr><td>"+data.kodependaftaran+"</td><td>"+data.name+"</td><td>"+data.tanggallahir+"<td>"+data.alamat+"</td><td><a href='<?php echo site_url('admin/pendaftaran/lihatdetail/'); ?>"+data.kodependaftaran+"'>Lihat</a></td></tr>");
+	  $("#hasilpendaftaran tbody").prepend("<tr><td>"+data.kodependaftaran+"</td><td>"+data.name+"</td><td>"+data.tanggallahir+"<td>"+data.alamat+"</td><td></td><td><a href='<?php echo site_url('admin/Pendaftaran/lihat/'); ?>"+data.kodependaftaran+"'>Lihat</a></td></tr>");
     });
 	//endPusher
 	

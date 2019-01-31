@@ -34,7 +34,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <body>
 	<!-- title -->
-	<h1>
+	<h1 style="color:black">
 		<span>Y</span>ayasan
 		<span>L</span>entera
 		<span>H</span>ati</h1>

@@ -18,31 +18,6 @@ class Home extends CI_Controller {
 	}
 
 	
-	
-	public function profilesmp(){
-		$this->template->isi('halaman/profil/profil_smpit');
-	}
-        public function profilesd(){
-		$this->template->isi('halaman/profil/profil_sdit');
-	}
-        public function profiletk(){
-		$this->template->isi('halaman/profil/profil_tkit');
-	}
-        public function psb_tkit(){
-		$this->template->isi('halaman/psb/psb_tkit');
-	}
-        public function psb_sdit(){
-		$this->template->isi('halaman/psb/psb_sdit');
-	}
-        public function psb_smpit(){
-		$this->template->isi('halaman/psb/psb_smpit');
-	}
-        public function informasi(){
-		$this->template->full('halaman/informasi');
-	}
-        public function galeri(){
-		$this->template->isi('halaman/galeri');
-	}
     public function contact(){
 		$data['menuContact'] = 'active';	
 		$this->template->isi('guest/data/contact',$data);
@@ -73,5 +48,17 @@ class Home extends CI_Controller {
     public function infodetail($id) {
 		$data['row']=$this->Infomodel->getId($id);
 		$this->template->isi('guest/data/detailinformasi',$data);
+	}
+
+	public function profiletk(){
+		$this->template->isi('guest/data/profil_tkit');
+	}
+
+	public function profilesd(){
+		$this->template->isi('guest/data/profil_sdit');
+	}
+
+	public function profilesmp(){
+		$this->template->isi('guest/data/profil_smpit');
 	}
 }
